@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "product": "到货检验隔离",
+  "source_context": "当前 GitHub 账号内通过正式容器验证的 Python 后端项目群",
+  "actors": [
+    "采购计划员",
+    "供应商",
+    "质量工程师",
+    "仓储管理员"
+  ],
+  "states": [
+    "草拟",
+    "待确认",
+    "已下达",
+    "履行中",
+    "已关闭"
+  ],
+  "invariants": [
+    "批次检验状态机",
+    "隔离库存边界",
+    "放行上架原子性",
+    "库存决定追溯"
+  ],
+  "sample_cases": [
+    {
+      "case_id": "0910031-019-A",
+      "actor": "采购计划员",
+      "state": "草拟"
+    },
+    {
+      "case_id": "0910031-019-B",
+      "actor": "仓储管理员",
+      "state": "待确认"
+    }
+  ],
+  "tags": [
+    "incoming-inspection",
+    "quarantine-stock"
+  ]
+}
