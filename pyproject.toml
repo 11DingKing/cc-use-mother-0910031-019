@@ -1,6 +1,12 @@
 [project]
 name = "domain-contract-0910031-019"
-version = "0.1.0"
-description = "到货检验隔离的领域约定与校验工具"
+version = "0.2.0"
+description = "到货检验隔离的领域约定、校验工具与后端服务（批次/抽检/缺陷/隔离库位/放行/让步/领料）"
 requires-python = ">=3.11"
 dependencies = []
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
