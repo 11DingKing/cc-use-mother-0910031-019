@@ -1,0 +1,80 @@
+"""状态机与类型常量。"""
+from __future__ import annotations
+
+from datetime import datetime, timezone
+
+
+def utc_now_iso() -> str:
+    """当前 UTC 时间的 ISO 8601 表示。"""
+    return datetime.now(timezone.utc).isoformat(timespec="milliseconds")
+
+
+class LotStatus:
+    """到货批次状态机：RECEIVED → INSPECTING → AWAITING_DISPOSITION → PARTIALLY_RELEASED → RELEASED/RETURNED/CLOSED。"""
+
+    RECEIVED = "RECEIVED"
+    INSPECTING = "INSPECTING"
+    AWAITING_DISPOSITION = "AWAITING_DISPOSITION"
+    PARTIALLY_RELEASED = "PARTIALLY_RELEASED"
+    RELEASED = "RELEASED"
+    RETURNED = "RETURNED"
+    CLOSED = "CLOSED"
+
+    ALL = (RECEIVED, INSPECTING, AWAITING_DISPOSITION, PARTIALLY_RELEASED, RELEASED, RETURNED, CLOSED)
+
+
+class UnitStatus:
+    """库存单位状态：QUARANTINED → AVAILABLE → ISSUED，或 QUARANTINED → RETURNED。"""
+
+    QUARANTINED = "QUARANTINED"
+    AVAILABLE = "AVAILABLE"
+    ISSUED = "ISSUED"
+    RETURNED = "RETURNED"
+
+    ALL = (QUARANTINED, AVAILABLE, ISSUED, RETURNED)
+
+
+class LocationKind:
+    QUARANTINE = "QUARANTINE"
+    AVAILABLE = "AVAILABLE"
+
+    ALL = (QUARANTINE, AVAILABLE)
+
+
+class PlanStatus:
+    OPEN = "OPEN"
+    COMPLETED = "COMPLETED"
+
+
+class ItemResult:
+    PASS = "PASS"
+    FAIL = "FAIL"
+
+    ALL = (PASS, FAIL)
+
+
+class Severity:
+    CRITICAL = "CRITICAL"
+    MAJOR = "MAJOR"
+    MINOR = "MINOR"
+
+    ALL = (CRITICAL, MAJOR, MINOR)
+
+
+class DecisionType:
+    RELEASE = "RELEASE"
+    PARTIAL_RELEASE = "PARTIAL_RELEASE"
+    CONCESSION_RELEASE = "CONCESSION_RELEASE"
+    RETURN = "RETURN"
+    REINSPECT = "REINSPECT"
+
+    ALL = (RELEASE, PARTIAL_RELEASE, CONCESSION_RELEASE, RETURN, REINSPECT)
+
+
+class ConcessionStatus:
+    PENDING = "PENDING"
+    APPROVED = "APPROVED"
+    REJECTED = "REJECTED"
+    CONSUMED = "CONSUMED"
+
+    ALL = (PENDING, APPROVED, REJECTED, CONSUMED)

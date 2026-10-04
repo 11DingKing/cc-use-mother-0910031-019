@@ -15,6 +15,28 @@
     "履行中",
     "已关闭"
   ],
+  "lot_states": [
+    "RECEIVED",
+    "INSPECTING",
+    "AWAITING_DISPOSITION",
+    "PARTIALLY_RELEASED",
+    "RELEASED",
+    "RETURNED",
+    "CLOSED"
+  ],
+  "unit_states": [
+    "QUARANTINED",
+    "AVAILABLE",
+    "ISSUED",
+    "RETURNED"
+  ],
+  "decision_types": [
+    "RELEASE",
+    "PARTIAL_RELEASE",
+    "CONCESSION_RELEASE",
+    "RETURN",
+    "REINSPECT"
+  ],
   "invariants": [
     "批次检验状态机",
     "隔离库存边界",
